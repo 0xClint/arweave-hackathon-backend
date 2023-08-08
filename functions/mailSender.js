@@ -32,13 +32,13 @@ export async function mailSender(arrData) {
         text: template(dataInput),
       };
 
-      //   await transporter.sendMail(info, (err, result) => {
-      //     if (err) {
-      //       console.log("Error in sending Mail", err);
-      //     } else {
-      //       console.log("Mail sent successfully", info);
-      //     }
-      //   });
+        await transporter.sendMail(info, (err, result) => {
+          if (err) {
+            console.log("Error in sending Mail", err);
+          } else {
+            console.log("Mail sent successfully", info);
+          }
+        });
     });
   }
 }
