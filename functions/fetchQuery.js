@@ -12,7 +12,8 @@ export async function fetchQuery(stateData) {
     stateData ? stateData.map((item) => item.address) : []
   );
   console.log(address);
-  const endpoint = "https://arweave-search.goldsky.com/graphql";
+  const endpoint1 = "https://arweave.net/graphql";
+  const endpoint2 = "https://arweave-search.goldsky.com/graphql";
   const query = `query {
     transactions( first:10,owners:${address})
   
@@ -41,7 +42,7 @@ export async function fetchQuery(stateData) {
 
   try {
     const response = await axios.post(
-      endpoint,
+      endpoint2,
       {
         query,
       },

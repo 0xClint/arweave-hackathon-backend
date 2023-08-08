@@ -33,8 +33,7 @@ const mergeArray = (arr1, arr2) => {
 
 async function main() {
   let state, queryData;
-  let currentTimestamp = currentUnixTime() - 600;
-  console.log(process.env.CONTRACT_TX_ID);
+  let currentTimestamp = currentUnixTime() - 1200;
 
   console.log("***********Getting UsersState from contract************");
   state = await fetchState();
@@ -56,7 +55,7 @@ async function main() {
     : [];
   console.log("sortedArray", sortedArray);
   //   console.log(mergeArray(sortedArray, state)[2]);
-  await mailSender(mergeArray(sortedArray, state));
+  // await mailSender(mergeArray(sortedArray, state));
   console.log("***********************END********************");
 }
 main();
