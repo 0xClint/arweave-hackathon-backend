@@ -10,9 +10,9 @@ import { mailSender } from "./functions/mailSender.js";
 const app = express();
 
 //send email after 1 minute
-// cron.schedule("*/10 * * * * *", function () {
-//   main();
-// });
+cron.schedule("*/10 * * * * *", function () {
+  main();
+});
 function currentUnixTime() {
   return Math.floor(Date.now() / 1000); // Convert milliseconds to seconds
 }
@@ -33,7 +33,7 @@ const mergeArray = (arr1, arr2) => {
 
 async function main() {
   let state, queryData;
-  let currentTimestamp = currentUnixTime() - 1200;
+  let currentTimestamp = currentUnixTime() - 3600;
 
   console.log("***********Getting UsersState from contract************");
   state = await fetchState();
@@ -60,7 +60,7 @@ async function main() {
 }
 main();
 
-// const port = 4000; // Change this to the desired port number
-// app.listen(port, () => {
-//   console.log(`Application listening on port ${port}`);
-// });
+const port = 4000; // Change this to the desired port number
+app.listen(port, () => {
+  console.log(`Application listening on port ${port}`);
+});
